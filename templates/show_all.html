@@ -1,0 +1,123 @@
+{%extends 'layout.html'%}
+
+
+<h1>sign up </h1>
+{%block contentA %}
+<h> {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}</h>
+
+
+<style>
+    th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+table{
+width:70%
+text-align: center;
+	vertical-align: middle;
+	margin-left:10%;
+	 margin-right:10%;
+	 background-color:aliceblue;
+}
+
+
+.caption {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: left;
+  color: #333;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.container2{
+width:79%;
+margin:1%;
+
+margin-left:10%;
+background-color:green;
+color:white;
+
+}
+
+a {
+  color: hotpink;
+}
+</style>
+
+
+
+<div class="caption">  Liste of Students:
+    <br>
+     <a class="nav-link active" aria-current="" href="">Welcome : {{session.username}}</a>
+</div>
+<table >
+
+  <tr>
+    <th>RollNo</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+      <th>UserName</th>
+       <th>Email</th>
+
+       <th>Major</th>
+       <th>Dept</th>
+
+       <th colspan="3">Actions</th>
+  </tr>
+
+
+      {% for row in posts %}
+
+            <tr>
+                <td>{{row[0]}}</td>
+               <td>{{row[1]}}</td>
+                 <td>{{row[2]}}</td>
+
+
+                <td>{{row[3]}}</td>
+                  <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>{{row[6]}}</td>
+
+
+                  <td>
+                      <a href="/delete/{{row[0]}}"><button onclick="return confirm('Are you sure to Delete data');" class="btn btn-danger">Delete </button> </a>
+                  </td>
+                 <td>
+                     <a href="/update/{{row[0]}}"><button class="btn btn-primary" data-target="#modaledit{{row[0]}}">Edit </button> </a>
+                 </td>
+                <td>
+                     <a href="/enrollement_course2/{{row[0]}}"><button class="btn btn-primary" data-target="#modaledit{{row[0]}}">Enroll classes </button> </a>
+                 </td>
+            </tr>
+
+    {% endfor %}
+
+</table>
+</div>
+
+<div class="container2">
+
+  <div class="row justify-content-md-center">
+
+            <div class="col-3">
+              <a href = "/">Go back to home page</a>
+            </div>
+
+            <div class="col-3">
+              <div><a href = "/register"> register</a></div>
+            </div>
+    <div class="col-3"> Number of students : {{item1}}</div>
+
+
+      <div class="col-3"> <h3><a href = "/logout">logout</a></h3></div>
+
+  </div>
+</div>
+
+
+{%endblock contentA %}
+

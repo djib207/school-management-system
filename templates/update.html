@@ -1,0 +1,139 @@
+{%extends 'layout.html'%}
+
+
+{%block contentAA %}
+
+{% for message in get_flashed_messages() %}
+<p style="color: red;">Error : {{ message }}</p>
+{% endfor %}
+
+ <h3 class="text-center"><span>Edit Student Details</span> </h3>
+
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+<div>
+
+</div>
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-4"></div>
+<div class="col-md-4">
+
+<form action="/update/{{my_data[0]}}" method="post" enctype="multipart/form-data">
+<div class="form-group">
+ <h4>Id to update:{{my_data.0}}</h4>
+<div class="form-group">
+<input type="hidden" class="form-control" name="rollno" id="name" value="{{my_data[0]}}" >
+</div>
+<br>
+
+<div class="form-group">
+<label for="sname">Student First Name</label>
+<input type="text" class="form-control" name="fname" id="name" value="{{my_data[1]}}" >
+</div>
+<br>
+   <div class="form-group">
+<label for="sname">Student Last Name</label>
+<input type="text" class="form-control" name="lname" id="name" value="{{my_data[2]}}" >
+</div>
+    <br/>
+<div class="form-group">
+<label for="sem">address</label>
+<input type="text" class="form-control" name="addr" id="addr" value="{{my_data[3]}}" >
+</div>
+<br>
+<div class="form-group">
+<label for="sem">City</label>
+<input type="text" class="form-control" name="city" id="sem" value={{my_data[4]}} >
+</div>
+<br>
+    <label for="sem">City</label>
+<input type="text" class="form-control" name="state" id="sem" value={{my_data[5]}} >
+</div>
+<br>
+<div class="form-group">
+
+<label for="sem">Zipcode</label>
+<input type="text" class="form-control" name="pin" id="sem" value={{my_data[6]}} >
+</div>
+<br>
+<div class="form-group">
+
+<label for="pwd">Paasword</label>
+<input type="password" class="form-control" name="pwd" id="pwd" value={{my_data[9]}} >
+</div>
+<br>
+<div class="form-group">
+<label for="num">e-mail</label>
+<input type="text" class="form-control" name="email" id="email" value={{my_data[7]}} >
+</div>
+<br>
+
+<div class="form-group">
+    <label for="num">Username</label>
+<input type="text"class="form-control" name="username" id="username" value={{my_data[8]}}>
+</div>
+<br>
+
+  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg">Choose Photo</label>
+                  <input type="file" name = "photo" id="photo" value={{my_data[13]}}>
+
+                </div>
+
+<br>
+
+<div class="form-group">
+    <label>Major</label>
+<input type="text"class="form-control" name="majorId" id="majorId" value={{my_data[10]}}>
+</div>
+<br>
+
+<div class="form-group">
+    <label>Dept</label>
+<input type="text"class="form-control" name="DeptId" id="DeptId" value={{my_data[11]}}>
+</div>
+<br>
+  <button type="submit" class="btn btn-light btn-sm btn-block">Submit Record</button>
+</form>
+<br>
+<br>
+
+</div>
+<div class="col-4">
+      <a href = "/">Go back to home page</a>
+    </div>
+<div class="col-md-4"></div>
+
+</div>
+</div>
+</div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+
+
+{%endblock contentAA %}

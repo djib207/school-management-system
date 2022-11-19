@@ -1,0 +1,117 @@
+{%extends 'layout.html'%}
+
+
+<h1>sign up </h1>
+{%block contentA %}
+<h> {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}</h>
+
+
+
+
+
+
+<style>
+    th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+.course{
+width:70%
+text-align: center;
+	vertical-align: middle;
+	margin-left:30%;
+	 margin-right:10%;
+	 background-color:aliceblue;
+}
+
+
+
+.caption {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: left;
+  color: #333;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+
+.container2{
+width:79%;
+margin:1%;
+
+margin-left:10%;
+ margin-bottom: 16px;
+
+background-color:green;
+color:white;
+
+}
+a {
+  color: hotpink;
+}
+</style>
+
+
+
+
+
+<section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+<div class="caption">  Liste of Depts:</div>
+<table class="course"  >
+
+  <tr>
+    <th>Dept Id</th>
+    <th>Description</th>
+
+       <th colspan="2">Actions</th>
+  </tr>
+
+
+      {% for row in posts %}
+
+            <tr>
+                <td>{{row[0]}}</td>
+               <td>{{row[1]}}</td>
+
+
+                  <td><a href="/deleteDept/{{row[0]}}"><button onclick="return confirm('Are you sure to Delete data');" class="btn btn-danger">Delete </button> </a> </td>
+                 <td><a href="/updateDept/{{row[0]}}"><button class="btn btn-primary" data-target="#modaledit{{row[0]}}">Edit </button> </a>
+                     </tr>
+
+            </tr>
+
+
+
+    {% endfor %}
+
+</table>
+<div class="container2">
+
+  <div class="row justify-content-md-center">
+
+          <div class="col-3">
+          <a href = "/">Go back to home page</a>
+        </div>
+
+          <div class="col-3">
+          <a href = "/addDept"> Add new dept</a>
+        </div>
+
+           <div class="col-3">
+         Number of courses : {{item1}}
+        </div>
+
+          <div class="col-3">
+              <h4><a href = "/logout">logout</a></h4>
+          </div>
+  </div>
+</div>
+
+</section>
+{%endblock contentA %}
+
+

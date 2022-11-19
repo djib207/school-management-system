@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/static/main.css">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+        <a class="navbar-brand" href="#">Ecole Public et Privee Champion</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/home">Home</a>
+            </li>
+
+
+
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+
+          <li class="nav-item">
+              <a class="nav-link" href="/show_all">list-Students</a>
+            </li>
+
+
+           <div class="dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Profile & Billing
+                      </button>
+                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/billing">Billing</a>
+                         </li>
+
+                         <li class="nav-item">
+                            <a class="nav-link" href="/show_bill">Show-Bill</a>
+                         </li>
+                         <li class="nav-item">
+              <a class="nav-link" href="/account">MyAccount</a>
+            </li>
+
+                          <li class="nav-item">
+              <a class="nav-link" href="/enrollement_course2">Register Now</a>
+            </li>
+                          <li><a class="dropdown-item" href="/show_bill/{{session.rollno}}">Billing</a></li>
+                      </ul>
+
+            </div>
+
+
+
+<!-- {% if session.loggedin %}-->
+
+
+
+     <!--     {% endif %}-->
+
+                    <div class="dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dashboard
+                      </button>
+                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item active" href="/addSubject">add subj</a></li>
+                        <li><a class="dropdown-item" href="/all_subjects">all subj</a></li>
+                        <li><a class="dropdown-item" href="/register">New student</a></li>
+                         <li><a class="dropdown-item active" href="/addDept">add dept</a></li>
+                        <li><a class="dropdown-item" href="/all_dept">all dept</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/show_all">all students</a></li>
+                          <li><a class="dropdown-item" href="/addMajor">new major</a></li>
+                          <li><a class="dropdown-item" href="/all_majors">all_majors</a></li>
+                         <li><a class="dropdown-item" href="/addCourse">Add new course</a></li>
+                          <li><a class="dropdown-item" href="/all_courses">display All Courses</a></li>
+                           <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="/register_class/">My classes</a></li>
+                          <li><a class="dropdown-item" href="/show_by_sem/">Course_by_semester</a></li>
+                          <li><a class="dropdown-item" href="/enrollement_course/{{current_user.rollno}}">enrollement courses</a></li>
+                      </ul>
+            </div>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="" href="">Welcome : {{session.username}}</a>
+            </li>
+
+      </ul>
+    </div>
+  </div>
+
+<ul class="navbar-nav justify-content-end">
+        {% if session.loggedin %}
+                <li class="nav-item">
+
+                    <a class="nav-link" href="/register">Register</a>
+
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+
+
+        {% else%}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">login</a>
+                  </li>
+        {% endif %}
+
+    </ul>
+
+  </nav>
+
+</head>
+<body>
+{%block contentA%}
+{%endblock contentA%}
+
+{%block contentAA%}
+{%endblock contentAA%}
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
+{%block contentB%}
+{%endblock contentB%}
+
+{%block contentC%}
+{%endblock contentC%}
+
+{%block contentD%}
+{%endblock contentD%}
+</body>
+</html>

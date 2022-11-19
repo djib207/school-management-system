@@ -1,0 +1,51 @@
+{%extends 'layout.html'%}
+
+{%block contentAA %}
+<style>
+    .containerX{
+         margin: 40px;
+
+         }
+
+</style>
+{% for message in get_flashed_messages() %}
+<p style="color: red;">Error : {{ message }}</p>
+{% endfor %}
+<div class="container border w-50 p-3">
+                <div class="containerX">
+
+                    <p class="text-center">Login before enrolling.</p>
+                    <h3>{{msg}}</h3>
+                    <h3>{{user}}</h3>
+                    <h3>{{data}}</h3>
+                </div>
+
+<form  action="enroll" method="post">
+
+        <div class="mb-4 row">
+            <label for="staticEmail" class="col-sm-4 col-form-label">UserName</label>
+            <div class="col-sm-6">
+              <input type="text"  name="username" class="form-control" id="staticEmail"
+                     placeholder="username" required>
+            </div>
+        </div>
+
+        <div class="mb-4 row">
+         <label for="inputPassword" class="col-sm-4 col-form-label">Password</label>
+        <div class="col-sm-6">
+          <input type="password" name="password" class="form-control" id="inputPassword" required>
+        </div>
+        </div>
+
+<div class="auto">
+
+   <button type="submit" class="btn btn-primary mb-4">Login</button>
+  </div>
+
+
+
+    </form>
+
+</div>
+
+{%endblock contentAA %}

@@ -1,0 +1,62 @@
+
+
+
+
+
+
+{%extends 'layout.html'%}
+
+
+{%block contentAA %}
+
+
+
+
+        <div class="affichage"><h3>courses enrolled</h3></div>
+
+    <table class="content" border:auto>
+
+        <tr>
+            <th>Course Id</th>
+            <th>title</th>
+            <th>rollno</th>
+        </tr>
+<tr>
+         {% for comment in stud %}
+            <td>
+                 {{ comment.courseId }}
+
+                </td>
+                <td>
+
+                 {{ comment.title }}
+                </td>
+    <tr/>
+        <tr>
+                 <td>{% for children in comment.registration %}
+                      {{ comment.title }}
+                   {{ children.title }}
+                        {{ children.rollno }}
+                       {% endfor %}
+                </td>
+
+                 <td>
+
+                </td>
+
+           </tr>
+        {% endfor %}
+    </table>
+
+
+
+
+</div>
+
+                <div>{% for message in get_flashed_messages() %}
+                <p style="color: red;">Resultat :{{current_user.username }} {{ message }}</p>
+                {% endfor %}
+                    <h2><a href = "/logout">logout</a></h2></div>
+                </div>
+
+{%endblock contentAA %}

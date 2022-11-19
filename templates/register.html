@@ -1,0 +1,131 @@
+{%extends 'layout.html'%}
+
+
+<h1>sign up </h1>
+{%block contentA %}
+<div>{% for message in get_flashed_messages() %}
+        <p style="color: red;">Error : {{ message }}</p>
+        {% endfor %}
+         </div>
+<section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <!--<form action="register" method="post">-->
+                <form method="POST" action="/register" enctype="multipart/form-data">
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example1cg" name = "fname" class="form-control form-control-lg" required />
+                  <label class="form-label" for="form3Example1cg">Your First Name</label>
+                </div>
+
+                    <div class="form-outline mb-4">
+                  <input type="text" id="form3Example1cg" name = "lname" class="form-control form-control-lg" required />
+                  <label class="form-label" for="form3Example1cg">Your Last Name</label>
+                    </div>
+
+                 <div class="form-outline mb-4">
+                  <input type="text" name = "addr" id="form3Example1cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">Your Address</label>
+                </div>
+
+              <div class="form-outline mb-4">
+                  <input type="text" name = "city" id="form3Example1cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">Your City</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="text" name = "state" id="form3Example1cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">Your Sate</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="text" name = "pin" id="form3Example1cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">Your Zip code</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example3cg" name = "username" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example3cg">Your User name here</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="form3Example3cg" name ="email" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cg" name="pwd1" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cg">Password</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cdg" name="pwd2" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                </div>
+
+                  </br>
+                   <div class="form-group">
+                        <select class="form-control" id="dept" name="dept"  required>
+                            <option selected>Select Dept</option>
+
+                                {% for d in dept %}
+                              <option value="{{d[0]}}">{{d[1]}}</option>
+
+                            {% endfor %}
+                        </select>
+                 </div>
+
+                    </br>  </br>
+
+                  <div class="form-group">
+                        <select class="form-control" id="dept" name="major1"  required>
+                            <option selected>Select major</option>
+                            {% for m in major %}
+                            <option value="{{m[0]}}">{{m[1]}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                </br>
+
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg">Choose Photo</label>
+                  <input type="file" name = "photo" id="photo" class="form-control form-control-lg" />
+
+                </div>
+
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                  <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                </div>
+
+
+
+                <div class="auto">
+                 <button type="submit" class="btn btn-primary mb-4">Register</button>
+                    <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/login"
+                    class="fw-bold text-body"><u>Login here</u></a></p>
+
+                </div>
+
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%endblock contentA %}

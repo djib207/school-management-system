@@ -1,0 +1,152 @@
+{%extends 'layout.html'%}
+
+
+{%block contentAA %}
+<style>
+.row{
+width:50%;
+margin-left:5%;
+	 margin-right:5%;
+	  background-color:aliceblue;
+}
+
+.row1{
+width:80%;
+margin-left:5%;
+	 margin-right:5%;
+	  background-color:aliceblue;
+}
+
+table{
+width:80%
+text-align: center;
+	vertical-align: middle;
+	margin-left:10%;
+	 margin-right:10%;
+	 background-color:aliceblue;
+}
+
+
+ th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+
+.caption {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: left;
+  color: #333;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+</style>
+
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+
+                <form method="POST" action="/show_by_sem" enctype="multipart/form-data">
+
+                       <div class="col-sm-6">
+                            <select class="form-control" name="course" id="color" required>
+                               <option value="">Choose course</option>
+
+                                {% for s in course2  %}
+                                <option value="{{s[0]}}">{{s[1]}}</option>
+                                {% endfor %}
+                            </select>
+
+                            </div>
+
+                       </br>
+                            <div class="col-sm-6">
+                            <select class="form-control" name="semester" id="color" required>
+                               <option value="">Choose Semester</option>
+
+                                {% for s in semester2  %}
+                                <option value="{{s[0]}}">{{s[1]}}</option>
+                                {% endfor %}
+                            </select>
+
+                            </div>
+                        </br>
+
+                         <div class="col-sm-4">
+                             <button type="submit" class="btn btn-primary mb-4">Search</button>
+                     </div>
+                     <div class="col-sm-4">
+                        <h4><a href = "/logout">logout</a></h4>
+                     </div>
+
+         </form>
+        </br>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+{%endblock contentAA %}
+
+
+{%block contentC%}
+
+<div class="row">
+        <div class="table-responsive col-md-12">
+            <div class="card">
+              <div class="card-body">
+
+                              <div class="caption"> <h3>List of Student Registered </h3> </div>
+                                <table >
+
+                        <tr>
+
+                            <th>Roll no</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                             <th>CourseId</th>
+                            <th>User Name</th>
+                        </tr>
+                        {% for row in list %}
+
+                            <tr>
+                                 <td>{{row[0]}}</td>
+                               <td>{{row[1]}}</td>
+                                 <td>{{row[2]}}</td>
+                                 <td>{{row[3]}}</td>
+                                 <td>{{row[4]}}</td>
+
+
+
+                            </tr>
+
+                    {% endfor %}
+                <tr>
+            <td>total: {{total}}</td>
+                        <td>Max_capacity: {{max_cap}}</td>
+                </tr>
+                </table>
+
+
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+
+
+{%endblock contentC%}
+
+
+
+

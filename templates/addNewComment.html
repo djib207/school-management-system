@@ -1,0 +1,63 @@
+{%extends 'layout.html'%}
+
+{% block contentAA %}
+
+
+            <div class="post1">
+                <div class="PosterId">
+                  Post #:  {{ post.PostId }}
+                </div>
+
+                <div class="title">
+                  Name: {{ post.title }}</div>
+
+                <div class="content">
+                   content: {{ post.content }}
+                </div> <div class="content">
+                   Poster Name: {{ post.poster.name }}
+                </div>
+
+
+<hr>
+<h3>Comments</h3>
+<form method="post">
+    <p>
+        <textarea name="content"
+                    placeholder="Comment"
+                    cols="60"
+                    rows="5"></textarea>
+    </p>
+
+    <p>
+        <button type="submit">Add comment</button>
+    </p>
+</form>
+
+<div class="affichage"><h3>Comments</h3></div>
+
+    <div class="content">
+
+         {% for comment in post.comments %}
+            <div class="post">
+                <div class="Post Id">
+                  comment #:  {{ comment.id }}
+                </div>
+
+
+
+                <div class="content">
+                  Content:  {{ comment.content }}
+                </div>
+
+                <div class="Poster Id">
+                Posted By:   {{ post.poster.name }}
+                </div>
+                <div class="Poster Id">
+                Post #:   {{ comment.post.postId}}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+
+{%endblock%}

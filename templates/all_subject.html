@@ -1,0 +1,90 @@
+{%extends 'layout.html'%}
+
+
+<h1>sign up </h1>
+{%block contentA %}
+<h> {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}</h>
+
+
+
+
+
+
+<style>
+    th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+table{
+width:70%
+text-align: center;
+	vertical-align: middle;
+}
+
+
+.caption {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: left;
+  color: #333;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+</style>
+
+
+<section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+<div class="caption">  Liste of Subjects:</div>
+<table >
+
+  <tr>
+    <th>Subject Id</th>
+    <th>Title</th>
+
+       <th colspan="2">Actions</th>
+  </tr>
+
+
+      {% for row in posts %}
+
+            <tr>
+                <td>{{row["subjectId"]}}</td>
+               <td>{{row["subjectName"]}}</td>
+
+
+                  <td><a href="/deleteSubject/{{row.subjectId}}"><button onclick="return confirm('Are you sure to Delete data');" class="btn btn-danger">Delete </button> </a> </td>
+                 <td><a href="/subjectUpdate/{{row.subjectId}}"><button class="btn btn-primary" data-target="#modaledit{{row.subjectId}}">Edit </button> </a>
+                     </tr>
+
+            </tr>
+
+
+
+
+    {% endfor %}
+
+</table>
+<div class="container">
+
+  <div class="row justify-content-md-center">
+
+    <div class="col-4">
+      <a href = "/">Go back to home page</a>
+    </div>
+    <div class="col-4">
+      <div><a href = "/registration"> register</a></div>
+    </div>
+<div class="col-4">
+     <div>Number of courses : {{item1}}</div>
+    </div>
+  </div>
+</div>
+<div> <h2><a href = "/logout">logout</a></h2></div>
+</section>
+{%endblock contentA %}
+
